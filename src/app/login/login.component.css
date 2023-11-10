@@ -18,6 +18,12 @@ mat-card {
   margin-top: 150px;
 }
 
+mat-spinner {
+  width: 20px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .button {
   display: flex;
   justify-content: flex-end;

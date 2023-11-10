@@ -36,8 +36,10 @@
       </div>
 
       <div class="button">
-        <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="onSubmit()">
-          Login
+
+        <button mat-raised-button  [disabled]="!loginForm.valid" (click)="onSubmit()">
+          <mat-spinner *ngIf="success"></mat-spinner>
+          <div *ngIf="!success">Login</div>
         </button>
       </div>
       <br><br>

@@ -15,6 +15,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
   error: any;
   user = sessionStorage.getItem('user');
+  success = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,15 +41,20 @@ export class LoginComponent {
       return;
     }
 
+    this.success = true;
+
     this.auth
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .pipe(first())
       .subscribe({
         next: () => {
+          this.success = false;
           this.router.navigateByUrl("/home");
+          this.error = "";
         },
         error: (error) => {
-          this.error = error.error.error;
+          this.success = false;
+          this.error = error;
         },
       });
   }
