@@ -1,0 +1,105 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Contact List</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" (click)="logout()" aria-label="Example icon-button with menu icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <div class="header d-flex justify-content-between align-items-center">
+        <h1 class="mt-2">My Contacts</h1>
+        <button class="createCon" mat-raised-button color="accent" routerLink="/create-contact">
+          <span>Create Contact</span>
+          <mat-icon>add</mat-icon>
+        </button>
+        <button class="addIcon" mat-mini-fab routerLink="/create-contact" color="accent"
+          aria-label="Example icon button with a menu icon">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <mat-form-field class="input-group mt-5">
+        <input matInput placeholder="Search Contact" [(ngModel)]="searchQuery" (keyup)="performSearch()">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <div *ngIf="data" class="table-responsive text-center">
+        <table class="table mat-elevation-z8 mt-5">
+          <thead class="table-light">
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <ng-container *ngFor="let contacts of contact">
+            <tbody>
+              <tr *ngIf="!searchText">
+                <td>{{ contacts.firstName }}</td>
+                <td>{{ contacts.lastName }}</td>
+                <td>{{ contacts.phoneNo }}</td>
+                <td class="d-flex justify-content-center">
+                  <a [routerLink]="['../contact-details/' + contacts?._id]">
+                    <button mat-flat-button color="primary">Edit</button>
+                  </a>
+                  <button mat-flat-button color="warn" (click)="openVerticallyCentered(content)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+
+              <ng-template #content let-modal class="">
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Contact</h4>
+                  <button class="btn" (click)="modal.close('Close click')">
+                    <mat-icon>clear</mat-icon>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Are you sure want to delete
+                  <h6 class="d-inline">
+                    {{ contacts?.firstName + " " + contacts?.lastName }}
+                  </h6>
+                </div>
+                <div class="modal-footer">
+                  <button mat-raised-button (click)="modal.close('Close click')">
+                    Close
+                  </button>
+                  <button mat-raised-button color="warn" (click)="deleteContact(contacts?._id)"
+                    (click)="modal.dismiss('Cross click')">
+                    Delete
+                  </button>
+                </div>
+              </ng-template>
+            </tbody>
+          </ng-container>
+
+          <ng-container *ngFor="let item of filteredData">
+            <tbody>
+              <tr *ngIf="searchText">
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.phoneNo }}</td>
+                <td class="d-flex justify-content-center">
+                  <a [routerLink]="['../contact-details/' + item?._id]">
+                    <button mat-flat-button color="primary">Edit</button>
+                  </a>
+                  <button mat-flat-button color="warn" (click)="openVerticallyCentered(content)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </ng-container>
+
+        </table>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

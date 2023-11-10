@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+mat-form-field {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10%;
+}
+
+mat-card {
+  padding: 2%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.error {
+  margin-top: -20px;
+  margin-left: 15px;
+  padding-bottom: 7%;
+  color: red;
+}
+

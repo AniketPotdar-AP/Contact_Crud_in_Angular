@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title {
+  padding-bottom: 10%;
+}
+
+mat-card {
+  padding: 1%;
+  margin-top: 150px;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  margin-top: -20px;
+  margin-left: 15px;
+  padding-bottom: 7%;
+  color: red;
+}
+
+.alert {
+  background-color: #fee;
+  border: 1px solid #edd;
+  color: red;
+  padding: 10px;
+  text-align: center;
+  margin: 15px;
+  border-radius: 10px;
+}
