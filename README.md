@@ -1,6 +1,5 @@
 # Live Demo
-
-https://deft-beanbag-315713.web.app/ 
+<a href="https://deft-beanbag-315713.web.app/" target="_blank">https://deft-beanbag-315713.web.app/</a>
 
 # Contact Crud
 
