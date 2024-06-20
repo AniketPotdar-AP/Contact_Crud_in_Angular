@@ -1,5 +1,5 @@
 # Live Demo
-<a href="https://master--contactcrudangular.netlify.app/" target="_blank">https://master--contactcrudangular.netlify.app/</a>
+<a href="https://contactcrudangular.netlify.app/" target="_blank">https://contactcrudangular.netlify.app//</a>
 
 # Contact Crud
 
